@@ -13,6 +13,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button class="form-appear-btn">Add a book</button>
+
+    <div class="form-wrap form-invisible">
+        <form action="" method="get">
+            <div class="text-field">
+                <label for="title">book title</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="text-field">
+                <label for="author">author</label>
+                <input type="text" id="author" name="author">
+            </div>
+            <div>
+                <p>read yet?</p>
+                <div>
+                    <input type="radio" id="not-read" name="read" value="not-read" checked>
+                    <label for="not-read">no</label>
+                </div>
+                <div>
+                    <input type="radio" id="read" name="read" value="read">
+                    <label for="read">yes</label>
+                </div>
+            </div>
+            <div>
+                <p>did it suck?</p>
+                <div>
+                    <input type="radio" id="did-not-suck" name="suck" value="did-not-suck" checked>
+                    <label for="did-not-suck">didn't suck</label>
+                </div>
+                <div>
+                    <input type="radio" id="kinda" name="suck" value="kinda">
+                    <label for="kinda">kinda sucked</label>
+                </div>
+                <div>
+                    <input type="radio" id="sucked" name="suck" value="sucked">
+                    <label for="sucked">definitely sucked</label>
+                </div>
+            </div>
+            <button>submit</button>
+        </form>
+    </div>
+
     <div class="container">
         <div class="card">
             <div>title Doggo ipsum much ruin diet</div>
