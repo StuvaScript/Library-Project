@@ -32,6 +32,12 @@ body > button:active {
     visibility: hidden;
 }
 
+h1 {
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
 .form-wrap {
     display: flex;
     justify-content: center;
@@ -53,6 +59,14 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+form > span {
+    color: rgb(202, 28, 28);
+    font-size: 1.3rem;
+    position: absolute;
+    right: 15%;
+    top: 25%;
 }
 
 form p {
