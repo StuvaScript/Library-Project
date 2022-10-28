@@ -15,18 +15,18 @@
 <body>
     <button class="form-appear-btn">Add a book</button>
 
-    <div class="form-wrap form-invisible">
-        <form action="" method="get">
+    <div class="form-wrap invisible">
+        <form action="" method="get" id="form">
             <div class="text-field">
-                <label for="title">book title</label>
-                <input type="text" id="title" name="title">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
             </div>
             <div class="text-field">
-                <label for="author">author</label>
-                <input type="text" id="author" name="author">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
             </div>
             <div>
-                <p>read yet?</p>
+                <p>Read yet?</p>
                 <div>
                     <input type="radio" id="not-read" name="read" value="not-read" checked>
                     <label for="not-read">no</label>
@@ -37,9 +37,13 @@
                 </div>
             </div>
             <div>
-                <p>did it suck?</p>
+                <p>Did it suck?</p>
                 <div>
-                    <input type="radio" id="did-not-suck" name="suck" value="did-not-suck" checked>
+                    <input type="radio" id="unsure" name="suck" value="unsure" checked>
+                    <label for="sucked">not sure</label>
+                </div>
+                <div>
+                    <input type="radio" id="did-not-suck" name="suck" value="did-not-suck">
                     <label for="did-not-suck">didn't suck</label>
                 </div>
                 <div>
@@ -51,7 +55,7 @@
                     <label for="sucked">definitely sucked</label>
                 </div>
             </div>
-            <button>submit</button>
+            <button id="submit">submit</button>
         </form>
     </div>
 

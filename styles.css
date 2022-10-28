@@ -28,7 +28,7 @@ body > button:active {
     box-shadow: inset 2px 2px 2px rgb(94, 94, 94);
 }
 
-.form-invisible {
+.invisible {
     visibility: hidden;
 }
 
@@ -69,6 +69,10 @@ form p {
 input[type="text"] {
     border-radius: 5px;
     border: 1px solid #000;
+}
+
+[type="radio"] + label {
+    padding-left: 10px;
 }
 
 form button {
