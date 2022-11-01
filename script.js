@@ -23,14 +23,18 @@ function addCards() {
     thirdDiv.textContent = `${myLibrary[0].read}`;
     let fourthDiv = document.createElement('div');
     fourthDiv.textContent = `${myLibrary[0].suck}`;
+    let removeBtn = document.createElement('button');
+    removeBtn.classList.add('removeBtn');
+    removeBtn.textContent = 'remove book';
 
     newDiv.appendChild(firstDiv);
     newDiv.appendChild(secondDiv);
     newDiv.appendChild(thirdDiv);
     newDiv.appendChild(fourthDiv);
+    newDiv.appendChild(removeBtn);
 
     let container = document.querySelector('.container');
-    container.appendChild(newDiv);
+    container.insertBefore(newDiv, container.children[0]);
 };
 
 function formReset() {
@@ -63,9 +67,9 @@ submitBtn.addEventListener('click', (e) => {
     e.preventDefault(); 
 
     let title = document.querySelector('#title').value;
-    console.log(title);
+    // console.log(title);
     let author = document.querySelector('#author').value;
-    console.log(author);
+    // console.log(author);
     let read;
     let readInq = document.querySelectorAll('[name="read"]')
         .forEach(readIt => {
@@ -73,7 +77,7 @@ submitBtn.addEventListener('click', (e) => {
                 read = readIt.value;
             }
         });
-    console.log(read);
+    // console.log(read);
 
     let suck;
     let suckInq = document.querySelectorAll('[name="suck"]')
@@ -82,7 +86,7 @@ submitBtn.addEventListener('click', (e) => {
                 suck = suckIt.value;
             }
         });    
-    console.log(suck);
+    // console.log(suck);
         
     if (title === '' || author === '' || title.trim().length === 0 || author.trim().length === 0) {
         let warning = document.querySelector('.warning')
@@ -94,15 +98,40 @@ submitBtn.addEventListener('click', (e) => {
     }
 
     let newBook = new Book(title, author, read, suck);
-    console.log(newBook);
+    // console.log(newBook);
 
     addBookToLibrary(newBook);
 
-    console.log(myLibrary);
+    // console.log(myLibrary);
 
     addCards();
 
     formVisible.classList.add('invisible');
     
     formReset();
+
+    let deleteBtn = document.querySelector('.card')
+    .addEventListener('click', function(e) {
+    if (e.target.classList.value === 'removeBtn') {
+        console.log(this.getAttribute('data-number'));
+        this.remove();
+        // USE SPLICE() TO REMOVE THE ARRAY VALUE
+
+        // amendDataNumber(); <--- MAYBE ADD THIS BACK IN??
+        }  
+    });
+
+    amendDataNumber()
+    console.log(myLibrary);
 })
+
+function amendDataNumber() {
+    // console.log(myLibrary.length + ' length');
+    for (let i = 0; i < myLibrary.length; i++ ) {
+        // console.log(i + ' i');
+        let cycle = document.querySelector(`.container :nth-child(${i + 1})`);
+        // console.log(cycle + ' cycle');
+        cycle.setAttribute('data-number', `${myLibrary.length - 1}`);
+    }
+};
+
