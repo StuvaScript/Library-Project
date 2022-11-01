@@ -7,6 +7,12 @@ function Book(title, author, read, suck) {
     this.suck = suck;
 };
 
+Book.prototype.haveYouRead = function(arg) {
+    (arg === true) ? (this.read = 'read') : (this.read = 'not read')
+    // console.log(this.read = 'read');
+};
+
+
 function addBookToLibrary(libraryBook) {
     myLibrary.unshift(libraryBook);
 };
@@ -17,12 +23,21 @@ function addCards() {
 
     let firstDiv = document.createElement('div');
     firstDiv.textContent = `${myLibrary[0].title}`;
+
     let secondDiv = document.createElement('div');
     secondDiv.textContent = `${myLibrary[0].author}`;
+
     let thirdDiv = document.createElement('div');
-    thirdDiv.textContent = `${myLibrary[0].read}`;
+    let labelThird = document.createElement('label');
+    labelThird.textContent = `${myLibrary[0].read}`;
+    thirdDiv.appendChild(labelThird);
+    let checkThird = document.createElement('input');
+    checkThird.setAttribute('type', 'checkbox');
+    thirdDiv.appendChild(checkThird);
+
     let fourthDiv = document.createElement('div');
     fourthDiv.textContent = `${myLibrary[0].suck}`;
+
     let removeBtn = document.createElement('button');
     removeBtn.classList.add('removeBtn');
     removeBtn.textContent = 'remove book';
@@ -100,6 +115,8 @@ submitBtn.addEventListener('click', (e) => {
     let newBook = new Book(title, author, read, suck);
     // console.log(newBook);
 
+    // newBook.haveYouRead(false);
+
     addBookToLibrary(newBook);
 
     // console.log(myLibrary);
@@ -113,25 +130,37 @@ submitBtn.addEventListener('click', (e) => {
     let deleteBtn = document.querySelector('.card')
     .addEventListener('click', function(e) {
     if (e.target.classList.value === 'removeBtn') {
-        console.log(this.getAttribute('data-number'));
+        // console.log(this);
+        // console.log(this.getAttribute('data-number'));
         this.remove();
-        // USE SPLICE() TO REMOVE THE ARRAY VALUE
+        myLibrary.splice(`${this.getAttribute('data-number')}`, 1);
+        // console.log(myLibrary);
+        amendDataNumber();
+        }
 
-        // amendDataNumber(); <--- MAYBE ADD THIS BACK IN??
-        }  
+        // MAKE THIS WORK
+        // Get :checked value when clicking checkbox and send it in 
+        // boolean style to the haveYouRead() function
+        // --------------------------
+        // console.log(e.target)
+    if (e.target.getAttribute('type') === 'checkbox') {
+        console.log('buttz');
+        // newBook.haveYouRead(false); <--- UNCOMMENT THIS
+    }
+    // ----------------------------------
     });
 
     amendDataNumber()
-    console.log(myLibrary);
+    // console.log(myLibrary);
 })
 
 function amendDataNumber() {
     // console.log(myLibrary.length + ' length');
     for (let i = 0; i < myLibrary.length; i++ ) {
         // console.log(i + ' i');
-        let cycle = document.querySelector(`.container :nth-child(${i + 1})`);
-        // console.log(cycle + ' cycle');
-        cycle.setAttribute('data-number', `${myLibrary.length - 1}`);
+        let cycle = document.querySelector(`.card:nth-child(${i + 1})`);
+        // console.log(cycle);
+        cycle.setAttribute('data-number', `${i}`);
     }
 };
 
