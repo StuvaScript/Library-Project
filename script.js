@@ -1,25 +1,27 @@
 let myLibrary = [];
 
-function Book(title, author, read, suck) {
+class Book {
+    constructor(title, author, read, suck) {
     this.title = title;
     this.author = author;
     this.read = read;
     this.suck = suck;
-};
-
-Book.prototype.haveYouRead = function(arg) {
-    (arg === true) ? (this.read = 'read') : (this.read = 'did not read');    
-};
-
-Book.prototype.checkControl = function() { 
-    let checkMark = document.querySelector('[type=checkbox]');
-    
-    let labelContent = document.querySelector('.card label');
-    if (labelContent.textContent === 'read') {
-        checkMark.checked = true;
     }
-};
 
+    haveYouRead(arg) {
+        (arg === true) ? (this.read = 'read') : (this.read = 'did not read');    
+    };
+
+    checkControl() { 
+        let checkMark = document.querySelector('[type=checkbox]');
+        
+        let labelContent = document.querySelector('.card label');
+        if (labelContent.textContent === 'read') {
+            checkMark.checked = true;
+        }
+    };
+
+};
 
 function addBookToLibrary(libraryBook) {
     myLibrary.unshift(libraryBook);
