@@ -1,68 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Project</title>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <h1>The Library</h1>
 
     <button class="form-appear-btn">Add a book</button>
 
     <div class="form-wrap invisible">
-        <form action="" method="get" id="form">
-            <span class="warning invisible">Please fill out all fields</span>
+      <form action="" method="get" id="form">
+        <span class="warning invisible">Please fill out all fields</span>
 
-            <div class="text-field">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
-            </div>
-            <div class="text-field">
-                <label for="author">Author:</label>
-                <input type="text" id="author" name="author" required>
-            </div>
-            <div>
-                <p>Read yet?</p>
-                <div>
-                    <input type="radio" id="not-read" name="read" value="did not read" checked>
-                    <label for="not-read">no</label>
-                </div>
-                <div>
-                    <input type="radio" id="read" name="read" value="read">
-                    <label for="read">yes</label>
-                </div>
-            </div>
-            <div>
-                <p>Did it suck?</p>
-                <div>
-                    <input type="radio" id="unsure" name="suck" value="unsure if it sucked" checked>
-                    <label for="sucked">not sure</label>
-                </div>
-                <div>
-                    <input type="radio" id="did-not-suck" name="suck" value="did not suck">
-                    <label for="did-not-suck">didn't suck</label>
-                </div>
-                <div>
-                    <input type="radio" id="kinda" name="suck" value="kinda sucked">
-                    <label for="kinda">kinda sucked</label>
-                </div>
-                <div>
-                    <input type="radio" id="sucked" name="suck" value="definitely sucked">
-                    <label for="sucked">definitely sucked</label>
-                </div>
-            </div>
-            <button id="submit">submit</button>
-        </form>
+        <div class="text-field">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="text-field">
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" required />
+        </div>
+        <div>
+          <p>Read yet?</p>
+          <div>
+            <input
+              type="radio"
+              id="not-read"
+              name="read"
+              value="did not read"
+              checked
+            />
+            <label for="not-read">no</label>
+          </div>
+          <div>
+            <input type="radio" id="read" name="read" value="read" />
+            <label for="read">yes</label>
+          </div>
+        </div>
+        <div>
+          <p>Did it suck?</p>
+          <div>
+            <input
+              type="radio"
+              id="unsure"
+              name="suck"
+              value="unsure if it sucked"
+              checked
+            />
+            <label for="sucked">not sure</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="did-not-suck"
+              name="suck"
+              value="did not suck"
+            />
+            <label for="did-not-suck">didn't suck</label>
+          </div>
+          <div>
+            <input type="radio" id="kinda" name="suck" value="kinda sucked" />
+            <label for="kinda">kinda sucked</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="sucked"
+              name="suck"
+              value="definitely sucked"
+            />
+            <label for="sucked">definitely sucked</label>
+          </div>
+        </div>
+        <button id="submit">submit</button>
+      </form>
     </div>
 
     <div class="container"></div>
-</body>
+  </body>
 </html>
